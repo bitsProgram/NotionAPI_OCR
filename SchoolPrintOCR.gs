@@ -1,4 +1,4 @@
-var settingProperties;// = scriptProperties.getProperties();
+var settingProperties;
 
 function SchoolPrintOCR() {
   let updateCount = 0;
@@ -80,32 +80,8 @@ function getText(url) {
   let fileBlob = res.getBlob();
   fileBlob.setName("download-image");
   let srcFile = DriveApp.createFile(fileBlob);
-
-  let options = { ocr: true, ocrLanguage: "ja" };ok
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  let options = { ocr: true, ocrLanguage: "ja" };
   let distFile = Drive.Files.copy({ title: "ocr-image" }, srcFile.getId(), options);
-
   let text = DocumentApp.openById(distFile.id).getBody().getText();
 
   Drive.Files.remove(srcFile.getId());
